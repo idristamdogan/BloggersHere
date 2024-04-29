@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -27,6 +29,6 @@ public class User {
     @Column(length = 8, nullable = false)
     @Size(min = 8, max = 8, message = "Password must be 8 characters long")
     private String password;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Post> posts;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Post> posts;
 }
